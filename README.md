@@ -25,4 +25,4 @@ To run this project locally, follow these steps:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/krarpit/todoApp.git
+   git clone (https://github.com/KrArpit/todoApp.git)
