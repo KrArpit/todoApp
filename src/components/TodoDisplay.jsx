@@ -4,11 +4,7 @@ import { useTodo } from '../context';
 import { useState, useRef, useEffect } from "react";
 
 function TodoDisplay({todo}) {
-    console.log({todo});
-    
-    
-    const inputRef = useRef(null);
-    // const textareaRef = useRef(null)
+    const textareaRef = useRef(null);
      
     const [editTodoMsg, seteditTodoMsg] = useState(todo.title);
     
@@ -27,14 +23,14 @@ function TodoDisplay({todo}) {
     }
     useEffect(() => {
         if (isTodoEditable) {
-            inputRef.current.focus();  // Focus on the input
+            textareaRef.current.focus();  // Focus on the input
           }
     }, [isTodoEditable]);
     
     useEffect(()=>{
-        if(inputRef.current){
-            inputRef.current.style.height = '2.3em';
-            inputRef.current.style.height = `${inputRef.current.scrollHeight}px`
+        if(textareaRef.current){
+            textareaRef.current.style.height = '2.3em';
+            textareaRef.current.style.height = `${textareaRef.current.scrollHeight}px`
         }
     })
 
@@ -44,7 +40,7 @@ function TodoDisplay({todo}) {
 
   return (
     <div 
-        className={`flex gap-2 items-center justify-center w-full px-3 py-2 rounded-md mb-2 ${todo.completed?"bg-[#c6e9a7]":"bg-[#f1faee]"}`}>
+        className={`flex gap-2 items-center justify-center w-full px-2 py-1 rounded-md mb-2 ${todo.completed?"bg-[#c6e9a7]":"bg-[#f1faee]"} shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)]`}>
             <input type="checkbox"
                     className='cursor-pointer h-5 w-5 outline-none appearance-none border border-slate-500 rounded-full checked:bg-slate-400'
                     checked={todo.completed}
@@ -54,7 +50,7 @@ function TodoDisplay({todo}) {
                     value={editTodoMsg}
                     onChange={(e)=>(seteditTodoMsg(e.target.value))}
                     readOnly={!isTodoEditable} 
-                    ref={inputRef}/>
+                    ref={textareaRef}/>
                     {/* Delete and Edit Buttons */}
             <div className="flex items-center justify-center gap-2">
                 <button 

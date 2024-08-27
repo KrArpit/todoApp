@@ -15,7 +15,8 @@ function TextInput() {
     }
 
   return (
-    <form className='w-full bg-[#f1faee] p-4 rounded-md flex items-center justify-center gap-3 mb-4'
+    <div className='w-full bg-[#f1faee] p-4 rounded-md mb-4'>
+    <form className='flex items-center justify-center gap-3 '
             onSubmit={add}>
         <input type="text"
             placeholder='Add a new task'
@@ -24,6 +25,7 @@ function TextInput() {
             onChange={(e)=>(settodo(e.target.value))}/>
         <button className='bg-[#ffd166] text-[#073b4c] px-3 py-2 rounded-md border border-[#073b4c] cursor-pointer'>Add</button>
     </form>
+    </div>
   )
 }
 
